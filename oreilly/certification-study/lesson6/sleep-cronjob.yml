@@ -1,0 +1,20 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: sleep-cronjob
+spec:
+  jobTemplate:
+    metadata:
+      creationTimestamp: null
+      name: test-job
+    spec:
+      template:
+        metadata:
+          creationTimestamp: null
+        spec:
+          containers:
+          - image: busybox
+            name: sleep-cronjob
+            command: ["sleep", "300"]
+          restartPolicy: OnFailure
+  schedule: '*/2 * * * *'
