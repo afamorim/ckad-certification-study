@@ -9,7 +9,7 @@ spec:
   replicas: 5
   selector:
     matchLabels:
-      app: nginx-replica
+      app: nginx-proxy
   strategy: 
     type: RollingUpdate
     rollingUpdate:
@@ -18,7 +18,7 @@ spec:
     metadata:
       creationTimestamp: null
       labels:
-        app: nginx-replica
+        app: nginx-proxy
     spec:
       containers:
       - image: nginx:1.9

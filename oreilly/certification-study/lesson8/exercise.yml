@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2020-12-27T18:03:50Z"
+  labels:
+    app: proxy
+  name: nginx-replica
+  namespace: default
+  resourceVersion: "401760"
+  selfLink: /api/v1/namespaces/default/services/nginx-replica
+  uid: 6047600c-9e45-47bf-a17b-31171ad3ff21
+spec:
+  clusterIP: 10.103.245.141
+  externalTrafficPolicy: Cluster
+  ports:
+  - nodePort: 31812
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: nginx-proxy
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}
