@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv
+spec:
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: /home/antonio/desenvolvimento/cursos/ckad-certification-study/oreilly/certification-study/lesson10/test-volume

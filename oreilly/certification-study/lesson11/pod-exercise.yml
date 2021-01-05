@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: dep-alpine
+  name: dep-alpine
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dep-alpine
+  template:
+    metadata:
+      labels:
+        app: dep-alpine
+    spec:
+      volumes:
+      - name: secret-vm
+        secret:
+          secretName: secret-exercise 
+      containers:
+      - image: alpine
+        name: alpine
+        command: ['sleep', '600']
+        volumeMounts:
+        - name: secret-vm
+          mountPath: /etc/users
+

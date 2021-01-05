@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: nignx
+  name: nignx-exam
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: webshop
+  strategy: 
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 2
+  template:
+    metadata:
+      labels:
+        app: webshop
+    spec:
+      containers:
+      - image: nginx:1.8
+        name: nginx
+        resources: {}
+

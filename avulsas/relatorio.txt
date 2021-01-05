@@ -1,0 +1,3 @@
+observability|app-obs-78d7bd5c58-cvz4f
+persistent|app-per-5f66b46fc-mg6zv
+resumo|app-resumo-7cb9799699-xjgj4

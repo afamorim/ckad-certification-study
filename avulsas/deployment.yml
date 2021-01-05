@@ -1,0 +1,85 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: app-resumo
+  name: app-resumo
+  namespace: resumo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app-resumo
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: app-resumo
+    spec:
+      containers:
+      - image: nginxx
+        name: nginxx
+        resources: {}
+status: {}
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: app-obs
+  name: app-obs
+  namespace: observability
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app-obs
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: app-obs
+    spec:
+      containers:
+      - image: nginxx
+        name: nginxx
+        resources: {}
+status: {}
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: app-per
+  name: app-per
+  namespace: persistent
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app-per
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: app-per
+    spec:
+      containers:
+      - image: nginxx
+        name: nginxx
+        resources: {}
+status: {}
+
+
+
+

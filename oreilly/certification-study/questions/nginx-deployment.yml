@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: nignx-deployment
+  name: nignx-deployment
+  namespace: ckad-ns6
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nignx-deployment
+  template:
+    metadata:
+      labels:
+        app: nignx-deployment
+    spec:
+      containers:
+      - image: nginx:1.9
+        name: nginx

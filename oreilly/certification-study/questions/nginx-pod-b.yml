@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: pod-b
+  name: pod-b
+  namespace: ckad-ns1
+spec:
+  containers:
+  - image: nginx
+    name: pod-b

@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: sidecar-nginx
+  name: sidecar-nginx
+spec:
+  containers:
+  - image: nginx
+    name: scn-nginx
+    ports:
+    - containerPort: 80
+    resources: {}
+    volumeMounts:
+    - mountPath: /usr/share/nginx/html
+      name: shared-volume
+  - image: busybox
+    name: sdn-busybox
+    command: ['wget', '-O', '/work-dir/index.html', 'http://neverssl.com/online']
+    volumeMounts:
+    - mountPath: /work-dir/ 
+      name: shared-volume
+  dnsPolicy: ClusterFirst
+  restartPolicy: Never
+  volumes:
+  - name: shared-volume
+    emptyDir: {}
+status: {}
